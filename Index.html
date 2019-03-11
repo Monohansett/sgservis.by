@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>СтройГеоСервис</title>
+  <meta name="viewport" content="width=device-width">
+
+  <meta name="description" content="Сервис">
+
+
+  <meta name="keywords"
+    content="сервис геодезические приборы ремонт тахеометры GNSS GPS технологии аэрофотосъёмка панорамы ортофотосъёмка вычисление объёмов 3D моделирование uav aerial imaging photography surveying">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+</head>
+
+<body>
+  <div class="main">
+    <div class="header">
+      <div class="header_resize">
+        <div class="logo">
+          <h1><a href="/">СтройГеоСервис<span></span> <small><em>Ремонт и поверка геодезического оборудования. г.
+                  Минск</em></small></a></h1>
+          <div class="header_info">
+            <div class="header_contacts">
+              <span>
+                <a class="header_item" href="tel: +375296085083">+375 29 6085083</a>
+              </span>
+              <br>
+              <span>
+                <a class="header_item" href="tel: +375172957571">+375 17 2957571</a>
+              </span>
+              <br>
+              <span>
+
+                <a class="header_item e-mail"> E-mail: info@sgservis.by </a>
+              </span>
+              <br>
+              <button class="btn_price-list">Прайс-лист</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel snippet begin -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="images/slide1_3.jpg" alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <p> Ремонт, поверка и сервисное обслуживание геодезических приборов</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="images/slide1_1.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <p>Тахеометры, нивелиры, теодолиты, GPS системы, построители, дальномеры и др.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="images/slide1_2.jpg" alt="Third slide">
+              <div class="carousel-caption d-none d-md-block">
+                <p>Квалифицированно, качественно и в срок</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <div class="modal_block__order">
+          <button class="modal-open__order-status" data-toggle="modal" data-target="#order_status__modal"
+            type="b">Просмотреть
+            статус вашего заказа</button>
+        </div>
+        <!-- Carousel snippet end -->
+
+        <!-- Modal Block -->
+        <div class="modal" tabindex="-1" role="dialog" id="order_status__modal">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Проверьте статус Вашего заказа</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="search_order__form">
+                  <div class="form-group">
+                    <label for="quittance" class="modal_label">Введите номер квитанции или серийный номер
+                      прибора</label>
+                    <input type="text" class="form-control quittanceInput search-input" id="quittance"
+                      placeholder="Номер квитанции">
+                     <br>
+                    <input type="text" class="form-control serialNumberInput search-input" id="serialNumber"
+                      placeholder="Серийный номер">
+                    <label for="UNP" class="quittance_label modal_label" required> УНН (обязательное поле) </label>
+                    <input type="text" class="form-control unpInput search-input" id="UNP" placeholder="УНН" required>
+                    <p id="errorMsg" style="text-align:center; color: red; display: none;"></p>
+                  </div>
+                </form>
+                <table class="tg" style="display:none;">
+                  <tr>
+                    <th class="tg-7vsa">№</th>
+                    <th class="tg-7vsa">УНН</th>
+                    <th class="tg-7vsa">Дата</th>
+                    <th class="tg-7vsa">Наименование прибора</th>
+                    <th class="tg-7vsa">Тип прибора</th>
+                    <th class="tg-7vsa">Серийный номер</th>
+                    <th class="tg-7vsa">Выполненные работы</th>
+                    <th class="tg-7vsa">Категория ремонта</th>
+                    <th class="tg-7vsa">Метрологические документы</th>
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary search_btn">Поиск</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal Block -->
+        <div class="content">
+          <div class="content_resize">
+            <div class="mainbar">
+              <div class="article">
+                <h2 style="text-align:center; font-size: 25px;">Ремонт, поверка и сервисное обслуживание геодезических
+                  инструментов</h2>
+                <div class="post_content">
+                  <p><span style="font-style: normal; font-weight: bold;">Выполняем поверки</span> внесённых в <a
+                      href="http://www.belgim.by/grsi_default/" target="_blank">Государственный реестр средств измерений
+                      Республики Беларусь</a> геодезических,
+                    топографических, строительных, оптико-механических, оптико-электронных, электронных и лазерных
+                    инструментов.</p>
+                  <p><span style="font-weight: bold">Выполняем ремонт</span> и техническое обслуживание
+                    вышеперечисленных
+                    типов приборов, а также установку, перепрошивку, русификацию, конфигурирование и оптимизацию их
+                    программного обеспечения.</p>
+                  <p><span style="font-weight: bold">Стоимость услуг</span> по ремонту и поверке геодезического
+                    оборудования <a href="/Price.pdf" target="_blank">смотрите тут</a>. Обращаем ваше внимание на
+                    то,
+                    что в стоимость ремонта не входят затраты на приобретение и доставку требующихся запасных частей и
+                    компонентов под замену.</p>
+                  <p><span style="font-weight: bold">Срок выполнения заказа</span> зависит от текущей нагрузки и
+                    сложности
+                    работ и составляет в среднем от 5-ти до 14-ти дней. В случае необходимости проведения срочного
+                    ремонта
+                    (поверки) стоимость возрастает на 20%. Срочность в зависимости от сложности работ предполагает
+                    выполнение заказа в срок до 3-х дней. Однако устоявшаяся практика показывает что в большинстве
+                    случаев
+                    работа выполняется день в день, либо на следующий день.</p>
+                  <p>При проведении поверки прибора мы осуществляем <strong>его доводку</strong> до требуемых
+                    метрологических  параметров. Т.е. в случае, когда метрологические характеристики вашего прибора
+                    лежат
+                    вне допустимых пределов, вместо свидетельства о непригодности вам будет предложен ремонт прибора с
+                    последующей его поверкой. В данной ситуации фактические работы по поверке выполняются дважды (до
+                    ремонта на этапе диагностирования несоответствия и после выполнения ремонтных работ), однако в
+                    стоимость поверка включается один раз. Отдельно выставляется счёт на ремонт.</p>
+                  <p><span style="font-weight: bold">Время работы лаборатории</span> с 8:30 до 17:30. Обед с 12:00 до
+                    13:00. Суббота, воскресенье - выходной.</p>
+                  <p><span style="font-weight: bold">Форма оплаты</span> - безналичная или наличная через банк.</p>
+                  <p><span style="font-weight: bold">Свидетельство о поверке СтройГеоСервис действительно на территории
+                      Республики Беларусь, Российской Федерации и Республики Казахстан!</span></p>
+                  <p>Предприятие оснащено необходимым для указанной деятельности оборудованием, имеет соответствующие
+                    разрешения органов стандартизации Республики Беларусь, имеет аттестат аккредитации на право
+                    производства поверок средств измерений, использующихся в сфере законодательной метрологии, выданный
+                    государственным предприятием "БГЦА" <a href="http://bsca.by/ru/registry-veriflab/all"
+                      target="_blank">Реестр
+                      БГЦА см. тут</a>.</p>
+                  <p class="article_img">
+                    <a href="images/obl2big.jpg" target="new">
+                      <img class="certificate_img" src="images/obl2.jpg" width="120" height="165" alt="" />
+                    </a>
+                    <a href="images/atte2big.jpg" target="new">
+                      <img class="certificate_img" src="images/atte2.jpg" width="120" height="165" alt="" />
+                    </a>
+                    <a href="images/appr4big.jpg" target="new">
+                      <img class="certificate_img" src="images/appr4.jpg" width="120" height="165" alt="" />
+                    </a>
+                    <a href="images/appr3big.jpg" target="new">
+                      <img class="certificate_img" src="images/appr3.jpg" width="120" height="165" alt="" />
+                    </a>
+                    <a href="images/appr5big.jpg" target="new">
+                      <img class="certificate_img" src="images/appr5.jpg" width="120" height="165" alt="" />
+                    </a>
+                  </p>
+                  <p>ООО "СтройГеоСервис" является авторизованным сервисным центром по измерительной технике <a
+                      href="http://www.bosch.by" target="_blank">Bosch/CST</a> (тахеометры, оптические нивелиры,
+                    лазерные нивелиры, лазерные
+                    построители плоскостей).</p>
+                  <p>ООО "СтройГеоСервис" является авторизованным сервисным центром по измерительной технике <a
+                      href="http://www.southinstrument.com" target="_blank">South</a> (тахеометры, оптические нивелиры,
+                    лазерные нивелиры, лазерные
+                    построители
+                    плоскостей, GNSS системы).</p>
+                  <p class="article_img">
+                    <a href="images/ser1big.jpg" target="new">
+                      <img class="certificate_img" src="images/sert1.jpg" width="120" height="159" alt="" />
+                    </a>
+                    <a href="images/ser3big.jpg" target="new">
+                      <img class="certificate_img" src="images/sert3.jpg" width="120" height="170" alt="" />
+                    </a>
+                  </p>
+                  <p>Обязательным условием предоставляемого нами качественного ремонта является наличие
+                    квалифицированных
+                    специалистов, прошедших обучение у производителя соответствующего оборудования или его
+                    представителя по
+                    сервису.</p>
+                  <p>ООО "СтройГеоСервис" много лет сотрудничает в области метрологии с <a
+                      href="http://www.belgim.by/kontaktyi/" target="_blank">Белорусским государственным институтом
+                      метрологии.</a></p>
+                  <p>&nbsp;</p>
+                </div>
+              </div>
+            </div>
+            <div class="block_separator">
+              <h2 class="text_separator"> Как с нами связаться</h2>
+            </div>
+            <div class="mainbar scheme">
+              <div class="article">
+                <p><span style="font-weight: bold">ООО «СтройГеоСервис»</span></p>
+                <p>220026 г. Минск, пр-т Партизанский 95 -1б<br />
+                  Р/с BY69BLNB30120000079983000933 в ЦБУ №7 ОАО «БНБ-Банк»  BIC: BLNBBY2X, 220141, г. Минск,  пр-т
+                  Независимости, 168, корп. 3<br />
+                  УНП 191045254  ОКПО  378162165000</p>
+                <p>Директор Элиазарашвили Виктор Иванович <br />
+                  действует на основании Устава</p>
+                <p>Тел./факс: <span style="font-weight: bold">+375 17 2957571</span><br />
+                  Моб. тел.: <span style="font-weight: bold">+375 29 6085083</span></p>
+                <p>Внутренний тел.: <span style="font-weight: bold">2388</span></p>
+                <p>e-mail для заявок, гарантийных писем: <span style="font-weight: bold">sgs-by@yandex.ru</span></p>
+                <p>e-mail для прочих контактов: <span style="font-weight: bold">info@sgservis.by</span></p>
+                <p><span style="font-weight: bold">Время работы лаборатории</span> с 8:30 до 17:30. Обед с 12:00 до
+                  13:00. Суббота, воскресенье - выходной.</p>
+                <p><span style="font-weight: bold">Схема:</span></p>
+                <p><img src="images/map.jpg" width="100%" height="auto" alt="" /></p>
+                <div style="width:100%">
+                  <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A59ad3fe4fd99d487bc4919c2d721a22289de320f9a84920a13a00d808d6c4c86&amp;width=100%25&amp;height=448&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                <h2>&nbsp;</h2>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fbg">
+          <div class="fbg_resize">
+            <div class="col c3">
+              <div class="gadget">
+                <h2 class="star footer_article">
+                  <span>Наши партнёры</span>
+                </h2>
+                <ul class="sb_menu">
+                  <li>
+                    <a href="http://www.topcon.by">TopCon</a>
+                  </li>
+                  <li>
+                    <a href="http://www.geotop.by">South</a>
+                  </li>
+                  <li>
+                    <a href="http://www.bosch.by/">CST/beger</a>
+                  </li>
+                  <li>
+                    <a href="http://www.bosch.by/">Bosch</a>
+                  </li>
+                  <li>
+                    <a href="http://www.topcon.by">Sokkia</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col c3">
+              <div class="gadget">
+                <h2 class="star footer_article">
+                  <span>Актуально</span>
+                </h2>
+                <ul class="ex_menu">
+                  <li>
+                    <a href="images\Price.pdf">Прайс-лист на наши услуги</a>
+                    <br />
+                    ремонт и поверки
+                  </li>
+                  <li>
+                    <a href="http://www.belgim.by/grsi_default/">Госстандарт РБ</a>
+                    <br />
+                    Госреестр СИ
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col c3">
+              <h2 class="footer_article"><span>Контакты</span> &nbsp;</h2>
+              <p>По любым возникшим у вас вопросам вы можете связаться с нами по указанным ниже телефонам или e-mail.
+              </p>
+              <p class="contact_info">
+                <span>Mob:</span>
+                <a href="tel:+375296085083">+375 29 6085083</a> <br />
+                <span>Tel/Fax:</span> <a href="tel:+375172957571">+375 17 2957571</a><br />
+                <span>E-mail:</span> <a href="#">info@sgservis.by</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script type="text/javascript" src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment-with-locales.js"
+  integrity="sha256-osLxzCLEKZXpeTpaGXuhS4istEryijEwZt+q0vpq698=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="js/statusOrder.js"></script>
+
+
+
+</html>
