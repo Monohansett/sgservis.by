@@ -60,19 +60,7 @@ $('input.search-input').keypress(function (e) {
 function checkOrderStatus(e) {
 
     e.preventDefault()
-
-    // const orderResult = excelData.filter( function (order, err) {
-    //     if (order.SerialNumber === serialNumberInput.val() && order.UNP === Number(unpInput.val())) {
-    //         return order.SerialNumber === serialNumberInput.val(), order.UNP === Number(unpInput.val())
-    //     } else if (order.QuittanceNumber === Number(quittanceInput.val())) {
-    //         return  order.UNP === undefined
-    //     } else if (order.QuittanceNumber === Number(quittanceInput.val()) && order.UNP === Number(unpInput.val())) {
-    //         return order.QuittanceNumber === Number(quittanceInput.val()), order.UNP === Number(unpInput.val())
-    //     } else {
-    //         console.log('')
-    //     }
-    // })
-
+    
     const orderResult = excelData.filter(function (order) {
         return order.SerialNumber === serialNumberInput.val() && order.UNP === Number(unpInput.val()) || order.QuittanceNumber === Number(quittanceInput.val()) && order.UNP === Number(unpInput.val()) || order.UNP === undefined && Number(quittanceInput.val()) === order.QuittanceNumber
     })
