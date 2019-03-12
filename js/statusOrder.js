@@ -60,11 +60,10 @@ $('input.search-input').keypress(function (e) {
 function checkOrderStatus(e) {
 
     e.preventDefault()
-    
+
     const orderResult = excelData.filter(function (order) {
         return order.SerialNumber === serialNumberInput.val() && order.UNP === Number(unpInput.val()) || order.QuittanceNumber === Number(quittanceInput.val()) && order.UNP === Number(unpInput.val()) || order.UNP === undefined && Number(quittanceInput.val()) === order.QuittanceNumber
     })
-    console.log(orderResult)
 
     $('tr.rowData').html('')
 
